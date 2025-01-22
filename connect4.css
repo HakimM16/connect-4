@@ -1,0 +1,112 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-color: #0a2a40;  /* Dark background */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /* Full viewport height */
+    overflow: hidden;  /* Prevent scrolling */
+}
+
+/* Game Content */
+.game-content {
+    opacity: 0; /* Start hidden */
+    animation: fadeIn 1.5s ease-out forwards;
+    animation-delay: 1s; /* Delay for smoother transition */
+    text-align: center;
+}
+
+/* Game Board Styles */
+#board {
+    height: 540px;
+    width: 630px;
+    background-color: #004080;  /* Slightly darker blue for board */
+    border: 10px solid #003366;  /* Darker border */
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 10px; /* Rounded corners for board */
+}
+
+/* Tile Styles */
+.tile {
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+    background-color: #1e3b5a;  /* Darker background for empty tiles */
+    border-radius: 50%;
+    border: 3px solid #002f47;  /* Slightly darker border */
+    transition: all 0.3s ease;  /* Smooth transition for interactions */
+}
+
+/* Piece Styles */
+.red-piece {
+    background-color: #ff4d4d;  /* Brighter red */
+}
+
+.yellow-piece {
+    background-color: #ffcc00;  /* Brighter yellow */
+}
+
+/* Hover Effect on Tiles */
+.tile:hover {
+    transform: scale(1.1);  /* Slight zoom effect on hover */
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);  /* Glow effect on hover */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #board {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .tile {
+        height: 60px;
+        width: 60px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .tile {
+        height: 50px;
+        width: 50px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1em;
+    }
+}
+
