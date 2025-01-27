@@ -19,30 +19,34 @@ body {
     animation: fadeIn 1.5s ease-out forwards;
     animation-delay: 1s; /* Delay for smoother transition */
     text-align: center;
+    width: 100%; /* Ensure full width */
+    max-width: 1000px; /* Prevent the game from stretching too wide */
 }
 
 /* Game Board Styles */
 #board {
-    height: 540px;
-    width: 630px;
+    aspect-ratio: 7 / 6; /* Maintain board's aspect ratio */
     background-color: #004080;  /* Slightly darker blue for board */
     border: 10px solid #003366;  /* Darker border */
-    margin: 20px auto;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Seven columns for Connect 4 */
+    gap: 5px; /* Spacing between tiles */
     border-radius: 10px; /* Rounded corners for board */
+    max-width: 90vw; /* Limit width for smaller screens */
+    max-height: 90vh; /* Limit height for smaller screens */
+    padding: 10px; /* Space around the grid */
 }
 
 /* Tile Styles */
 .tile {
-    height: 70px;
-    width: 70px;
-    margin: 5px;
+    aspect-ratio: 1; /* Keep tiles square */
     background-color: #1e3b5a;  /* Darker background for empty tiles */
     border-radius: 50%;
     border: 3px solid #002f47;  /* Slightly darker border */
     transition: all 0.3s ease;  /* Smooth transition for interactions */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Piece Styles */
@@ -76,14 +80,12 @@ body {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     #board {
-        width: 100%;
-        height: auto;
-        padding: 10px;
+        max-width: 80vw;
+        max-height: 80vh;
     }
 
     .tile {
-        height: 60px;
-        width: 60px;
+        margin: 2px; /* Reduce gap for smaller tiles */
     }
 
     h1 {
@@ -96,9 +98,14 @@ body {
 }
 
 @media (max-width: 480px) {
+    #board {
+        max-width: 95vw;
+        max-height: 95vh;
+        padding: 5px;
+    }
+
     .tile {
-        height: 50px;
-        width: 50px;
+        margin: 1px; /* Further reduce gap */
     }
 
     h1 {
@@ -109,4 +116,3 @@ body {
         font-size: 1em;
     }
 }
-
