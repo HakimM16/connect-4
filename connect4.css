@@ -100,3 +100,25 @@ h2 {
         -webkit-tap-highlight-color: transparent;
     }
 }
+
+/* Style for the reload button */
+.reload-button {
+    background-color: #004080;
+    color: white;
+    font-size: 1.2rem;
+    font-family: Arial, sans-serif;
+    padding: 10px 20px;
+    border: min(1.5vw, 10px) solid #003366;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.reload-button:hover {
+    background-color: #0059b3;
+    transform: scale(1.05);
+}
+
+.reload-button:active {
+    background-color: #003366;
+}
