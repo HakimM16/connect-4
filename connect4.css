@@ -77,6 +77,27 @@ body {
     }
 }
 
+/* Laptop Responsiveness */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    #board {
+        max-width: 60vw; /* Reduce board size on laptops */
+        max-height: 60vh;
+        padding: 8px; /* Adjust padding for smaller board */
+    }
+
+    .tile {
+        margin: 3px; /* Reduce spacing between tiles */
+    }
+
+    h1 {
+        font-size: 2.5em; /* Adjust heading size */
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     #board {
