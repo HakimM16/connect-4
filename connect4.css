@@ -2,67 +2,73 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    background-color: #0a2a40;  /* Dark background */
+    background-color: #0a2a40;
     color: #fff;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;  /* Full viewport height */
-    overflow: hidden;  /* Prevent scrolling */
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 /* Game Content */
 .game-content {
-    opacity: 0; /* Start hidden */
+    opacity: 0;
     animation: fadeIn 1.5s ease-out forwards;
-    animation-delay: 1s; /* Delay for smoother transition */
+    animation-delay: 1s;
     text-align: center;
-    width: 100%; /* Ensure full width */
-    max-width: 1000px; /* Prevent the game from stretching too wide */
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 /* Game Board Styles */
 #board {
-    aspect-ratio: 7 / 6; /* Maintain board's aspect ratio */
-    background-color: #004080;  /* Slightly darker blue for board */
-    border: 10px solid #003366;  /* Darker border */
+    width: min(90vw, 630px);
+    aspect-ratio: 7/6;
+    background-color: #004080;
+    border: min(1.5vw, 10px) solid #003366;
+    margin: 20px auto;
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* Seven columns for Connect 4 */
-    gap: 5px; /* Spacing between tiles */
-    border-radius: 10px; /* Rounded corners for board */
-    max-width: 90vw; /* Limit width for smaller screens */
-    max-height: 90vh; /* Limit height for smaller screens */
-    padding: 10px; /* Space around the grid */
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 2%;
+    padding: 2%;
+    border-radius: min(2vw, 10px);
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
 }
 
 /* Tile Styles */
 .tile {
-    aspect-ratio: 1; /* Keep tiles square */
-    background-color: #1e3b5a;  /* Darker background for empty tiles */
+    aspect-ratio: 1;
+    width: 100%;
+    background-color: #1e3b5a;
     border-radius: 50%;
-    border: 3px solid #002f47;  /* Slightly darker border */
-    transition: all 0.3s ease;  /* Smooth transition for interactions */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: min(0.5vw, 3px) solid #002f47;
+    transition: all 0.3s ease;
 }
 
 /* Piece Styles */
 .red-piece {
-    background-color: #ff4d4d;  /* Brighter red */
+    background-color: #ff4d4d;
 }
 
 .yellow-piece {
-    background-color: #ffcc00;  /* Brighter yellow */
+    background-color: #ffcc00;
 }
 
 /* Hover Effect on Tiles */
-.tile:hover {
-    transform: scale(1.1);  /* Slight zoom effect on hover */
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);  /* Glow effect on hover */
+@media (hover: hover) {
+    .tile:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    }
 }
 
 /* Fade-in Animation */
@@ -77,63 +83,20 @@ body {
     }
 }
 
-/* Laptop Responsiveness */
-@media (min-width: 1024px) and (max-width: 1440px) {
-    #board {
-        max-width: 60vw; /* Reduce board size on laptops */
-        max-height: 60vh;
-        padding: 8px; /* Adjust padding for smaller board */
-    }
-
-    .tile {
-        margin: 3px; /* Reduce spacing between tiles */
-    }
-
-    h1 {
-        font-size: 2.5em; /* Adjust heading size */
-    }
-
-    h2 {
-        font-size: 1.5em;
-    }
+/* Typography Responsive Scaling */
+h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    margin: 0.5em 0;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    #board {
-        max-width: 80vw;
-        max-height: 80vh;
-    }
-
-    .tile {
-        margin: 2px; /* Reduce gap for smaller tiles */
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
-    h2 {
-        font-size: 1.2em;
-    }
+h2 {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    margin: 0.5em 0;
 }
 
-@media (max-width: 480px) {
-    #board {
-        max-width: 95vw;
-        max-height: 95vh;
-        padding: 5px;
-    }
-
+/* Touch Device Optimization */
+@media (pointer: coarse) {
     .tile {
-        margin: 1px; /* Further reduce gap */
-    }
-
-    h1 {
-        font-size: 1.8em;
-    }
-
-    h2 {
-        font-size: 1em;
+        -webkit-tap-highlight-color: transparent;
     }
 }
